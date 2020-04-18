@@ -20,7 +20,9 @@
 ### /src/main/java/org/simonscode/thymeleafexample/controllers
 
 Jedes Template braucht einen Controller.
+
 Dieser liegt in diesem Ordner und implementiert das Interface `ThymeleafController`.
+
 Jeder Controller muss auch wie in `/src/main/java/org/simonscode/thymeleafexample/helper/ThymeleafApplication` in Zeile 64 registriert sein.
 
 ### /src/main/java/org/simonscode/thymeleafexample/helper/ThymeleafApplication
@@ -30,16 +32,19 @@ Jeder Controller muss hier wie in Zeile 64 registriert werden.
 ### /src/main/java/org/simonscode/thymeleafexample/helper/ThymeleafFilter
 
 Hier wird die ThymeleafEngine aufgerufen.
+
 Diese sollte in Ruhe gelassen werden.
 
 ### /src/main/java/org/simonscode/thymeleafexample/servlets
 
 Hier werden alle Servlets abgelegt.
+
 Diese muessen auch in der `web.xml` registriert sein.
 
 ### /src/main/webapp/static
 
 Hier liegen alle Dateien, die __keine__ Templates sind.
+
 Neue Unterordner muessen in `ThymeleafFilter` in Zeile 67 registriert werden.
 
 ### /src/main/webapp/templates
