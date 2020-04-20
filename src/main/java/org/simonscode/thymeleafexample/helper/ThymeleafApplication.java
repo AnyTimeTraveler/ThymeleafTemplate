@@ -30,13 +30,23 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Map;
 
-
 public class ThymeleafApplication {
 
-
     private TemplateEngine templateEngine;
-    private Map<String, ThymeleafController> controllersByURL;
+    private static final Map<String, ThymeleafController> controllersByURL = new HashMap<>();
 
+    static {
+        controllersByURL.put("/", new HomeController());
+        // put controllers here
+
+        // Beispielpfade:
+        // controllersByURL.put("/product/list", new ProductListController());
+        // controllersByURL.put("/product/comments", new ProductCommentsController());
+        // controllersByURL.put("/order/list", new OrderListController());
+        // controllersByURL.put("/order/details", new OrderDetailsController());
+        // controllersByURL.put("/subscribe", new SubscribeController());
+        // controllersByURL.put("/userprofile", new UserProfileController());
+    }
 
     public ThymeleafApplication(final ServletContext servletContext) {
 
@@ -46,8 +56,8 @@ public class ThymeleafApplication {
 
         // HTML is the default mode, but we will set it anyway for better understanding of code
         templateResolver.setTemplateMode(TemplateMode.HTML);
-        // This will convert "home" to "/WEB-INF/templates/home.html"
-        templateResolver.setPrefix("/templates/");
+        // This will convert "home" to "/src/main/webapp/home.html"
+        templateResolver.setPrefix("/");
         templateResolver.setSuffix(".html");
         // Set template cache TTL to 1 hour. If not set, entries would live in cache until expelled by LRU
         templateResolver.setCacheTTLMs(3600000L);
@@ -56,19 +66,8 @@ public class ThymeleafApplication {
         // be automatically updated when modified.
         templateResolver.setCacheable(true);
 
-        this.templateEngine = new TemplateEngine();
-        this.templateEngine.setTemplateResolver(templateResolver);
-
-        this.controllersByURL = new HashMap<>();
-        this.controllersByURL.put("/", new HomeController());
-        // Beispielpfade:
-//        this.controllersByURL.put("/product/list", new ProductListController());
-//        this.controllersByURL.put("/product/comments", new ProductCommentsController());
-//        this.controllersByURL.put("/order/list", new OrderListController());
-//        this.controllersByURL.put("/order/details", new OrderDetailsController());
-//        this.controllersByURL.put("/subscribe", new SubscribeController());
-//        this.controllersByURL.put("/userprofile", new UserProfileController());
-
+        templateEngine = new TemplateEngine();
+        templateEngine.setTemplateResolver(templateResolver);
     }
 
     private static String getRequestPath(final HttpServletRequest request) {
@@ -89,11 +88,11 @@ public class ThymeleafApplication {
 
     public ThymeleafController resolveControllerForRequest(final HttpServletRequest request) {
         final String path = getRequestPath(request);
-        return this.controllersByURL.get(path);
+        return controllersByURL.get(path);
     }
 
     public TemplateEngine getTemplateEngine() {
-        return this.templateEngine;
+        return templateEngine;
     }
 
 

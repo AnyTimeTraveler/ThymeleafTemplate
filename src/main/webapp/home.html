@@ -5,7 +5,7 @@
 
 <head>
     <link href="https://picsum.photos/70" rel="icon">
-    <link href="static/css/mvp.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/mvp.css}" type="text/css">
 
     <meta charset="utf-8">
     <meta content="My description" name="description">
@@ -56,6 +56,19 @@
             <label>
                 Not good
                 <input name="mood" type="radio" value="I hope you'll be better soon!">
+            </label>
+            <button type="submit">Send</button>
+        </form>
+    </section>
+    <hr>
+    <section>
+        <header>
+            <h3>File Upload Form Example</h3>
+        </header>
+        <form enctype="multipart/form-data" method="post" th:action="@{/upload}">
+            <label>
+                Wanna send me something?
+                <input accept="text/*" name="target_file" type="file">
             </label>
             <button type="submit">Send</button>
         </form>
