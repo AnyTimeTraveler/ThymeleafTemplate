@@ -17,36 +17,21 @@
  *
  * =============================================================================
  */
-package org.simonscode.thymeleafexample.helper;
+package thymeleaftemplate.helper;
 
-import org.simonscode.thymeleafexample.controllers.HomeController;
-import org.simonscode.thymeleafexample.controllers.ThymeleafController;
+import thymeleaftemplate.controllers.ThymeleafController;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.templatemode.TemplateMode;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
-import java.util.HashMap;
-import java.util.Map;
+
+import static thymeleaftemplate.controllers.Controllers.controllersByURL;
 
 public class ThymeleafApplication {
 
-    private TemplateEngine templateEngine;
-    private static final Map<String, ThymeleafController> controllersByURL = new HashMap<>();
-
-    static {
-        controllersByURL.put("/", new HomeController());
-        // put controllers here
-
-        // Beispielpfade:
-        // controllersByURL.put("/product/list", new ProductListController());
-        // controllersByURL.put("/product/comments", new ProductCommentsController());
-        // controllersByURL.put("/order/list", new OrderListController());
-        // controllersByURL.put("/order/details", new OrderDetailsController());
-        // controllersByURL.put("/subscribe", new SubscribeController());
-        // controllersByURL.put("/userprofile", new UserProfileController());
-    }
+    private final TemplateEngine templateEngine;
 
     public ThymeleafApplication(final ServletContext servletContext) {
 
@@ -56,15 +41,16 @@ public class ThymeleafApplication {
 
         // HTML is the default mode, but we will set it anyway for better understanding of code
         templateResolver.setTemplateMode(TemplateMode.HTML);
-        // This will convert "home" to "/src/main/webapp/home.html"
+        // This will convert "home.html" to "/src/main/webapp/home.html"
         templateResolver.setPrefix("/");
-        templateResolver.setSuffix(".html");
+        templateResolver.setSuffix("");
         // Set template cache TTL to 1 hour. If not set, entries would live in cache until expelled by LRU
         templateResolver.setCacheTTLMs(3600000L);
 
-        // Cache is set to true by default. Set to false if you want templates to
-        // be automatically updated when modified.
-        templateResolver.setCacheable(true);
+        // Cache is set to false by default.
+        // Set to true if you DON'T need templates to be automatically updated when modified.
+        // If you want to cache the templates to gain speed, set this to true
+        templateResolver.setCacheable(false);
 
         templateEngine = new TemplateEngine();
         templateEngine.setTemplateResolver(templateResolver);

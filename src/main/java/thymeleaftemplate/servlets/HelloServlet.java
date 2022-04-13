@@ -1,4 +1,4 @@
-package org.simonscode.thymeleafexample.servlets;
+package thymeleaftemplate.servlets;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

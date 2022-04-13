@@ -32,12 +32,6 @@
     <h1>Hello <span th:text="${name}">Name not found</span></h1>
     <h2>Today is: <span th:text="${#calendars.format(today)}">13 February 2011</span></h2>
     <br>
-
-    <h3>Page Heading with <i>Italics</i> and <u>Underline</u></h3>
-    <p>Page Subheading with
-        <mark>highlighting</mark>
-    </p>
-    <br>
 </header>
 <main>
     <section>
@@ -60,116 +54,7 @@
             <button type="submit">Send</button>
         </form>
     </section>
-    <hr>
-    <section>
-        <header>
-            <h3>File Upload Form Example</h3>
-        </header>
-        <form enctype="multipart/form-data" method="post" th:action="@{/upload}">
-            <label>
-                Wanna send me something?
-                <input accept="text/*" name="target_file" type="file">
-            </label>
-            <button type="submit">Send</button>
-        </form>
-    </section>
-    <hr>
-    <section>
-        <p><a href="#"><i>Italic Link Button</i></a><a href="#"><b>Bold Link Button &rarr;</b></a></p>
-    </section>
-    <hr>
-    <section>
-        <header>
-            <h2>Section Heading</h2>
-            <p>Section Subheading</p>
-        </header>
-        <aside>
-            <h3>Card heading</h3>
-            <p>Card content*</p>
-            <p><small>*with small content</small></p>
-        </aside>
-        <aside>
-            <h3>Card heading</h3>
-            <p>Card content <sup>with notification</sup></p>
-        </aside>
-        <aside>
-            <h3>Card heading</h3>
-            <p>Card content</p>
-        </aside>
-    </section>
-    <hr>
-    <section>
-        <blockquote>
-            "Quote"
-            <footer><i>- Attribution</i></footer>
-        </blockquote>
-    </section>
-    <hr>
-    <div>
-        <table>
-            <thead>
-            <tr>
-                <th></th>
-                <th>Col A</th>
-                <th>Col B</th>
-                <th>Col C</th>
-            </tr>
-            </thead>
-            <tr>
-                <td>Row 1</td>
-                <td>Cell A1</td>
-                <td>Cell B1</td>
-                <td>Cell C1</td>
-            </tr>
-            <tr>
-                <td>Row 2</td>
-                <td>Cell A2</td>
-                <td>Cell B2</td>
-                <td>Cell C2</td>
-            </tr>
-        </table>
-    </div>
-    <hr>
-    <article>
-        <h2>Left-aligned header</h2>
-        <p>Left-aligned paragraph</p>
-        <aside>
-            <p>Article callout</p>
-        </aside>
-        <ul>
-            <li>List item 1</li>
-            <li>List item 2</li>
-        </ul>
-        <figure>
-            <img alt="Stock photo" src="https://picsum.photos/1080/500">
-            <figcaption><i>Image caption</i></figcaption>
-        </figure>
-    </article>
-    <hr>
-    <div>
-        <details>
-            <summary>Expanable title</summary>
-            <p>Revealed content</p>
-        </details>
-        <details>
-            <summary>Another expanable title</summary>
-            <p>More revealed content</p>
-        </details>
-        <br>
-        <pre>
-                <code>
-                    // code sample
-
-                </code>
-            </pre>
-    </div>
 </main>
-<footer>
-    <hr>
-    <p>
-        Contact info
-    </p>
-</footer>
 </body>
 
 </html>

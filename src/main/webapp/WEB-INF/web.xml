@@ -7,25 +7,16 @@
 
     <servlet>
         <servlet-name>helloServlet</servlet-name>
-        <servlet-class>org.simonscode.thymeleafexample.servlets.HelloServlet</servlet-class>
+        <servlet-class>thymeleaftemplate.servlets.HelloServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>helloServlet</servlet-name>
         <url-pattern>/hello</url-pattern>
     </servlet-mapping>
 
-    <servlet>
-        <servlet-name>uploadServlet</servlet-name>
-        <servlet-class>org.simonscode.thymeleafexample.servlets.UploadServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>uploadServlet</servlet-name>
-        <url-pattern>/upload</url-pattern>
-    </servlet-mapping>
-
     <filter>
         <filter-name>ThymeleafFilter</filter-name>
-        <filter-class>org.simonscode.thymeleafexample.helper.ThymeleafFilter</filter-class>
+        <filter-class>thymeleaftemplate.helper.ThymeleafFilter</filter-class>
     </filter>
 
     <filter-mapping>

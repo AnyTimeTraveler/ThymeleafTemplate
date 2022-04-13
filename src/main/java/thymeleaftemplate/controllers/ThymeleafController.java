@@ -1,4 +1,4 @@
-package org.simonscode.thymeleafexample.controllers;
+package thymeleaftemplate.controllers;
 
 import org.thymeleaf.TemplateEngine;
 

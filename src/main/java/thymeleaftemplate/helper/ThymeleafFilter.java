@@ -17,9 +17,9 @@
  *
  * =============================================================================
  */
-package org.simonscode.thymeleafexample.helper;
+package thymeleaftemplate.helper;
 
-import org.simonscode.thymeleafexample.controllers.ThymeleafController;
+import thymeleaftemplate.controllers.ThymeleafController;
 import org.thymeleaf.TemplateEngine;
 
 import javax.servlet.*;

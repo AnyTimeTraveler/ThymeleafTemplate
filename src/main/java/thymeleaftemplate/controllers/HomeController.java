@@ -17,7 +17,7 @@
  *
  * =============================================================================
  */
-package org.simonscode.thymeleafexample.controllers;
+package thymeleaftemplate.controllers;
 
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
@@ -40,6 +40,6 @@ public class HomeController implements ThymeleafController {
         ctx.setVariable("name", System.getenv("USERNAME"));
 
         // render the template
-        templateEngine.process("home", ctx, response.getWriter());
+        templateEngine.process("home.html", ctx, response.getWriter());
     }
 }
